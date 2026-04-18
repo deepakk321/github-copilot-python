@@ -42,6 +42,50 @@ python app.py
 
 7. Open http://127.0.0.1:5000 in your browser.
 
+## Running Tests
+
+The project includes a comprehensive test suite using pytest. Tests cover the Sudoku logic and Flask routes.
+
+### Run all tests
+
+```bash
+cd starter
+python -m pytest tests/ -v
+```
+
+### Run tests with coverage report
+
+```bash
+cd starter
+python -m pytest tests/ -v --cov=. --cov-report=html
+```
+
+### Run specific test file
+
+```bash
+cd starter
+python -m pytest tests/test_sudoku_logic.py -v
+python -m pytest tests/test_app.py -v
+```
+
+### Run specific test class or function
+
+```bash
+cd starter
+python -m pytest tests/test_sudoku_logic.py::TestBoardCreation -v
+python -m pytest tests/test_app.py::TestNewGameRoute::test_new_game_easy_difficulty -v
+```
+
+## Test Structure
+
+- **tests/test_sudoku_logic.py** - Unit tests for Sudoku puzzle generation, validation, and logic
+- **tests/test_app.py** - Integration tests for Flask routes and API endpoints
+- **conftest.py** - Pytest configuration and shared fixtures
+
+The test suite includes:
+- 28 tests for sudoku logic (board creation, validation, puzzle generation)
+- 21 tests for Flask routes (index, new game, validation, check, scoreboard)
+
 ## Project Instructions
 
 Use GitHub Copilot to refactor the code for this game to add more advanced features. The goal is to create a more modern and maintainable codebase and add additional functionality to the final product. You can use any combination of code completion and chat features, like Ask, Edit, or Agent modes.

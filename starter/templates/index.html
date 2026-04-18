@@ -1,18 +1,86 @@
 <!doctype html>
-<html>
+<html lang="en">
 <head>
   <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sudoku Game</title>
   <link rel="stylesheet" href="/static/styles.css">
 </head>
 <body>
-  <h1>Sudoku Game</h1>
-  <div id="sudoku-board"></div>
-  <div class="controls">
-    <button id="new-game">New Game</button>
-    <button id="check-solution">Check Solution</button>
-    <span id="message"></span>
+  <div class="container">
+    <!-- Header with theme toggle -->
+    <header class="header">
+      <div class="header-content">
+        <h1>🎮 Sudoku Puzzle</h1>
+        <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
+          <span class="theme-icon">🌙</span>
+        </button>
+      </div>
+    </header>
+
+    <!-- Main game area -->
+    <main class="game-container">
+      <!-- Difficulty selection -->
+      <section class="difficulty-section">
+        <label for="difficulty-select">Difficulty:</label>
+        <select id="difficulty-select">
+          <option value="easy">Easy</option>
+          <option value="medium" selected>Medium</option>
+          <option value="hard">Hard</option>
+        </select>
+        <button id="new-game" class="btn-primary">New Game</button>
+      </section>
+
+      <!-- Game stats -->
+      <div class="game-stats">
+        <div class="stat-item">
+          <span class="stat-label">Time:</span>
+          <span id="timer" class="stat-value">00:00</span>
+        </div>
+      </div>
+
+      <!-- Message display -->
+      <div id="message" class="message"></div>
+
+      <!-- Sudoku board -->
+      <div id="sudoku-board" class="sudoku-board"></div>
+
+      <!-- Game controls -->
+      <div class="controls">
+        <button id="check-solution" class="btn-secondary">Check Solution</button>
+        <button id="hint-button" class="btn-secondary">💡 Hint</button>
+        <button id="clear-board" class="btn-secondary">Clear Board</button>
+      </div>
+
+      <!-- Complete message with name input -->
+      <div id="completion-modal" class="modal hidden">
+        <div class="modal-content">
+          <h2>🎉 Congratulations!</h2>
+          <p id="completion-message"></p>
+          <div class="form-group">
+            <label for="player-name">Your Name:</label>
+            <input type="text" id="player-name" placeholder="Enter your name" maxlength="20">
+          </div>
+          <button id="save-score" class="btn-primary">Save to Scoreboard</button>
+          <button id="close-modal" class="btn-secondary">Play Again</button>
+        </div>
+      </div>
+
+      <!-- Scoreboard section -->
+      <section class="scoreboard-section">
+        <h2>🏆 Top 10 Fastest Times</h2>
+        <div id="scoreboard" class="scoreboard">
+          <p class="empty-message">No scores yet. Be the first!</p>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <p>Made with ❤️ using Python Flask and Vanilla JavaScript</p>
+    </footer>
   </div>
+
   <script src="/static/main.js"></script>
 </body>
 </html>
